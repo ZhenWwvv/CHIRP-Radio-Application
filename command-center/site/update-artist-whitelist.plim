@@ -1,0 +1,11 @@
+-inherit command.plim
+
+-block page_title
+  Update artist whitelist
+
+-block desc
+  -md
+    This command will update the [artist whitelist file](https://github.com/chirpradio/chirpradio-machine/blob/master/chirp/library/data/artist-whitelist).
+
+-def name='next_url()' filter='trim'
+  |../push-artist-whitelist/

@@ -1,0 +1,53 @@
+-inherit base.plim
+
+-block extrastyle
+  link rel='stylesheet' href='/styles/command.css'
+
+-block extrascripts
+  script src='/scripts/jsfx.js'
+  script src='/scripts/soundfx.js'
+  script src='/scripts/command.js'
+
+-def button(cls, label, enabled=False)
+  ---
+    classes = [cls]
+    if not enabled:
+        classes.append('disabled')
+  button.btn.btn-primary disabled=${not enabled}? class=${' '.join(classes)} = label
+
+-def name='next_url()' filter='trim'
+  |#
+
+header
+  ol.breadcrumb
+    li
+      a href='/' Home
+    li.active = self.page_title()
+
+  h1 = self.page_title()
+
+  -block desc
+  -block extra_ui
+
+  .hbox
+    = button('start', 'Start', not task_is_running)
+    = button('stop', 'Stop', task_is_running)
+    button.btn.btn-primary.disabled.show-errors(data-toggle='modal'
+data-target='#error-modal' disabled='disabled') Show errors
+
+    div.spacer
+    button.btn.btn-primary.disabled.next disabled='disabled' data-url=${self.next_url()} Next
+
+main.console
+
+
+#error-modal.modal class='fade'
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close data-dismiss='modal' &times;
+        h4.modal-title Errors
+      .modal-body
+        pre
+      .modal-footer
+        button.btn.btn-default data-dismiss='modal' Close

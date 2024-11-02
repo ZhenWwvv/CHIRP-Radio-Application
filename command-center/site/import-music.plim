@@ -1,0 +1,10 @@
+-inherit command.plim
+
+-block page_title
+  Import new music files
+
+-block desc
+  p This command will import new music files.
+
+-def name='next_url()' filter='trim'
+  |../generate-traktor/
