@@ -1,0 +1,11 @@
+-inherit command.plim
+
+-block page_title
+  Push artist whitelist
+
+-block desc
+  -md
+    This command will push the latest copy of [artist whitelist file](https://github.com/chirpradio/chirpradio-machine/blob/master/chirp/library/data/artist-whitelist) to our online Git repository (so that we have a backup copy).
+
+-def name='next_url()' filter='trim'
+  |../check-music/

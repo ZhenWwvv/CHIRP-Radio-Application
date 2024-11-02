@@ -1,0 +1,64 @@
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.hbox {
+  display: flex;
+  flex-direction: row;
+}
+
+.vbox {
+  display: flex;
+  flex-direction: column;
+}
+
+.spacer {
+  flex: 1;
+}
+
+header {
+  padding-bottom: 1em;
+}
+
+header button.start, header button.stop {
+    margin-right: 1em;
+}
+
+
+.console {
+  flex: 1;
+  background-color: black;
+  color: lightgreen;
+  font-family: monospace;
+  overflow-y: scroll;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+}
+
+.console p {
+  padding: 0em 1em;
+  margin-bottom: 0.2em;
+}
+
+.console p.error, .console p.failure {
+  background-color: crimson;
+  color: white;
+}
+
+.console p.highlight {
+  background-color: gold;
+  color: darkslategray;
+}
+
+.console p.success {
+  background-color: seagreen;
+  color: white;
+}

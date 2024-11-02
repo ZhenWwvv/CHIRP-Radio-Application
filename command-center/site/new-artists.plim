@@ -1,0 +1,10 @@
+-inherit command.plim
+
+-block page_title
+  See new artists
+
+-block desc
+  p This command will show you what artists are (supposedly) not yet in the database.
+
+-def name='next_url()' filter='trim'
+  |../update-artist-whitelist/

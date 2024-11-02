@@ -1,0 +1,25 @@
+-inherit command.plim
+
+-block page_title
+  Generate Traktor file
+
+-block desc
+  p This command will generate the NML file for Traktor.
+
+-block extrascripts
+  = parent.extrascripts()
+  script src='/scripts/generate-traktor.js'
+
+-def name='next_url()' filter='trim'
+  |../upload/
+
+-block extra_ui
+  p.extra
+    strong Items written:&nbsp;
+      span.count
+    br
+    strong Elapsed time:&nbsp;
+      span.elapsed
+    br
+    strong Items per second:&nbsp;
+      span.rate

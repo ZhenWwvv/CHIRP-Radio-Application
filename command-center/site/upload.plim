@@ -1,0 +1,34 @@
+-inherit command.plim
+
+-block page_title
+  Upload new data to DJDB
+
+-block extrastyle
+  = parent.extrastyle()
+  link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker3.min.css'
+
+-block extrascripts
+  = parent.extrascripts()
+  script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js'
+  script
+    (function(){
+      // Set the value of the datepicker to be today.
+      let d = new Date()
+      let dateString = (d.getMonth() + 1) + '/' + d.getDate() + '/' + (d.getYear() + 1900)
+      $('#date-picker').val(dateString)
+    })()
+
+-block desc
+  -md
+    This command will upload artist and track metadata to [DJDB](https://chirpradio.appspot.com/).
+
+    The "start date" is used to determine how far back to look for changes. Usually the default of the current date is fine, but you might want to set it back if you made changes in the past few days that you haven't yet uploaded.
+
+  form
+    .form-inline style='margin-bottom: 2rem;'
+      .form-group
+        label for='date-picker' Start date:&nbsp;
+        input#date-picker.form-control name='date' type='text' data-provide='datepicker'
+
+-def name='next_url()' filter='trim'
+  |../new-artists/

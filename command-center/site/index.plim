@@ -1,0 +1,25 @@
+-inherit base.plim
+
+-block page_title
+  Home
+
+h1 CHIRP Command Center
+
+-if task is not None
+  p
+    Currently running command:&nbsp;
+    a href=${task.slug + '/'} ${task.slug}
+
+p Welcome! What would you like to do?
+
+-def button(label, url)
+  a.btn.btn-primary.btn-block.btn-lg href=url = label
+
+.well style='max-width:500px'
+  = button('See new artists', '/new-artists/')
+  = button('Update artist whitelist', '/update-artist-whitelist/')
+  = button('Push artist whitelist', '/push-artist-whitelist/')
+  = button('Check new music files', '/check-music/')
+  = button('Import new music files', '/import-music/')
+  = button('Generate Traktor file', '/generate-traktor/')
+  = button('Upload new data to DJDB', '/upload/')
