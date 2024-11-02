@@ -1,0 +1,7 @@
+*.py[co]
+*.sw[po]
+*.nose*
+.DS_Store
+settings_local.py
+*.egg-info
+output.nml
