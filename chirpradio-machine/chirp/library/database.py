@@ -127,6 +127,7 @@ class Database(object):
         # All database reads use this shared connection.  Each transaction
         # writes via its own private connection.
         self._shared_conn = self._get_connection()
+        self._whitelist = self._get_whitelist()
 
     def _get_connection(self):
         """Construct a new database connection."""
@@ -144,7 +145,7 @@ class Database(object):
             conn.execute(schema.create_audio_files_index)
             conn.execute(schema.create_id3_tags_table)
             conn.execute(schema.create_id3_tags_index)
-        except sqlite3.OperationalError, ex:
+        except (sqlite3.OperationalError, ex):
             return False
         return True
 
@@ -212,6 +213,15 @@ class Database(object):
         conn = self._get_connection()
         _insert_tags(conn, au_file.fingerprint, timestamp, au_file.mutagen_id3)
         conn.commit()
+    
+    def _get_whitelist(self):
+        query = "SELECT DISTINCT value FROM id3_tags WHERE frame_id = 'TPE1'"
+        cursor = self._shared_conn.execute(query)
+        return set([artist[0] for artist in cursor.fetchall()])
+
+    
+    def in_whitelist(self, artist_name: str):
+        return artist_name in self._whitelist
 
 
 class _AddTransaction(object):
@@ -265,3 +275,10 @@ class _AddTransaction(object):
         assert self._conn is not None
         self._conn.rollback()
         self._conn = None
+
+
+if __name__ == '__main__':
+    db = Database("catalog.sqlite3_db")
+    print("done generating whitelist")
+    print(db.in_whitelist("kdfjsdlfdsf"))
+    print(db.in_whitelist("Bishop Allen"))
