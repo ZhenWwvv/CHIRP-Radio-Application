@@ -16,9 +16,25 @@ def main_generator(rewrite):
         except:
             cprint(u'** file: %r' % au_file.path)
             raise
-        if artists.standardize(tpe1) is None:
-            new_artists.add(tpe1)
+        standardized_name = artists.standardize(tpe1)
+        if standardized_name:
+            if (standardized_name != tpe1):
+                inp = input(f"You inputted artist name {tpe1}. Did you mean {standardized_name}?" \
+                    f"Type 'no' to use {tpe1}, or type 'yes' to use {standardized_name}.")
+                while (True):
+                    if (inp == "no"):
+                        print(f"Continuing, using artist name {tpe1}")
+                        new_artists.add(tpe1)
+                        break
+                    elif (inp == "yes"):
+                        print(f"Continuing, using artist name {standardized_name}")
+                        break
+                    else:
+                        inp = input(f"Could not read input. Type only either 'yes' or 'no'")
 
+        else:
+            new_artists.add(tpe1)
+        
     to_print = list(new_artists)
     if rewrite:
         to_print.extend(artists.all())
