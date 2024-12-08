@@ -8,7 +8,7 @@ import time
 import os.path
 import subprocess
 from chirp.common.printing import cprint
-from chirp.common import conf
+#from chirp.common import conf
 from chirp.library import database
 from chirp.library import nml_writer
 
@@ -24,7 +24,7 @@ def main_generator():
     with codecs.open(nml_file, "w", "utf-8") as out_fh:
         # TODO(trow): Don't hard-wire the drive letter.
         writer = nml_writer.NMLWriter("T:", "/Library", out_fh)
-        db = database.Database(conf.LIBRARY_DB)
+        db = database.Database("catalog.sqlite3_db")
         count = 0
         start_t = time.time()
         for au_file in db.get_all():
@@ -38,13 +38,13 @@ def main_generator():
         writer.close()
 
     # Move the file to where Traktor users expect to find it.
-    cprint(u'Copying NML file to {}'.format(conf.TRAKTOR_NML_FILE))
+    cprint(u'Copying NML file to {}'.format("traktor_text.txt"))
     cmd = [
         'install',      # command that combines cp with chown, chmod, and strip
         '-m', '0775',
         '-g', 'traktor',
         nml_file,
-        conf.TRAKTOR_NML_FILE]
+        "traktor_text.txt"]
     subprocess.check_call(cmd)
 
     cprint("Wrote %d tracks to collection\n" % count, type='success')

@@ -26,8 +26,8 @@ def canonicalize_string(txt):
       A unicode string containing a canonicalized version of txt.
     """
     # If necessary, convert txt to unicode.
-    if not isinstance(txt, unicode):
-        txt = unicode(txt)
+    if not isinstance(txt, str):
+        txt = str(txt)
     # Map txt to lower-case.
     txt = txt.lower()
     # Strip off any leading "the".

@@ -118,7 +118,7 @@ class NMLWriter(object):
         # Clean up any XML-unsafe characters and wrap each value in
         # quotes.
         for k, v in entry_data.items():
-            new_v = xml.sax.saxutils.quoteattr(unicode(v))
+            new_v = xml.sax.saxutils.quoteattr(str(v))
             if new_v != v:
                 entry_data[k] = new_v
 

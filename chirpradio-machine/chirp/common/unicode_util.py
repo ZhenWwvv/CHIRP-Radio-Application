@@ -18,7 +18,7 @@ def simplify(text):
       7-bit ASCII characters.
     """
     simplified_chars = []
-    for c in unicode(text):
+    for c in str(text):
         if unicodedata.category(c)[0] in ("L", "N"):
             c = unicodedata.normalize("NFD", c)[0]
             c = _CHARACTER_NORMALIZATIONS.get(c, c)

@@ -22,8 +22,8 @@ class CustomPrint(object):
             if len(kwargs) == 0:
                 print
         else:
-            if not isinstance(message, basestring):
-                message = unicode(message)
+            if not isinstance(message, str):
+                message = str(message)
             if not isinstance(message, str):
                 # This is a Unicode object so we should encode it as a byte
                 # string before writing it to the console.
