@@ -6,7 +6,7 @@ import datetime
 
 from chirp.common.printing import cprint
 
-from mock_commands import fake_command
+from .mock_commands import fake_command
 
 
 def new_artists():
