@@ -76,8 +76,8 @@ class CommandCenterApplication(Application):
             obj = kwargs
             if message is not None:
                 kwargs['value'] = message
-
-        data = json.dumps(obj)
+        
+        data = json.dumps(obj, default=str)
         self.loop.add_callback(self._write_message, slug, data)
 
     def _write_message(self, slug, data):
