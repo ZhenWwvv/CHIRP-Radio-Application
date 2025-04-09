@@ -6,12 +6,41 @@ html lang='en'
     meta http-equiv='x-ua-compatible' content='ie=edge'
     title
       -block page_title
-      , | CHIRP Command Center
+       | CHIRP Command Center
     link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"
-    -block extrastyle
+    - block extrastyle
 
   body.container
-    = next.body()
+    - block header
+    .container-fluid
+      .row
+        // Sidebar (always appears on all pages)
+        .col-sm-3
+          nav
+            h4 Sidebar
+            ul.nav.nav-pills.nav-stacked
+              li
+                a(href='/') Home
+              li
+                a(href='/new-artists/')See New Artist
+              li
+                a(href='/check-music/')Check New Music
+              li
+                a(href='/import-music/')Import New Music
+              li
+                a(href='/push-artist-whitelist/')Push Artist Whitelist
+              li
+                a(href='/update-artist-whitelist/')Update Artist Whitelist
+              li
+                a(href='/upload/')Upload New Data to DJDB
+              li
+                a(href='/generate-traktor/')Generate Traktor File
+              
+
+
+        // Main content block (from child templates)
+        .col-sm-9
+          = next.body()
 
     script src='https://code.jquery.com/jquery-3.1.1.min.js'
     script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"

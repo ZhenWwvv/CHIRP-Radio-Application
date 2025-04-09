@@ -1,0 +1,9 @@
+nav
+  h4 Sidebar
+  ul.nav.nav-pills.nav-stacked
+    li
+      a(href='/') Home
+    li
+      a(href='/offcanvas') Offcanvas Demo
+    li
+      a(href='/settings') Settings
