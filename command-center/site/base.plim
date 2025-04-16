@@ -15,7 +15,7 @@ html lang='en'
     .container-fluid
       .row
         // Sidebar (always appears on all pages)
-        .col-sm-3
+        .col-sm-3.hidden-xs
           nav
             h4 Sidebar
             ul.nav.nav-pills.nav-stacked
