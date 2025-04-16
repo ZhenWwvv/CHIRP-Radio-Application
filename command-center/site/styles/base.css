@@ -1,4 +1,9 @@
 .sidebar {
     border-right: 5px solid #822036;
     height: 100vh;
+}
+
+.sidebar nav ul li a {
+    color: #3f3437;
+    font-weight: 750;
   }

@@ -62,3 +62,7 @@ header button.start, header button.stop {
   background-color: seagreen;
   color: white;
 }
+
+.btn {
+  background-color: #822036;
+}

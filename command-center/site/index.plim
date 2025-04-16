@@ -3,6 +3,9 @@
 -block page_title
   Home
 
+-block extrastyle
+  link rel='stylesheet' href='/styles/index.css'
+
 h1 CHIRP Command Center
 
 -if task is not None
