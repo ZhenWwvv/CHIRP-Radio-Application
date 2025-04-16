@@ -1,14 +1,36 @@
+@font-face {
+    font-family: 'ProximaNovaCondensedExtrabold';
+    src: url('/fonts/Proxima Nova Condensed Extrabold.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+body {
+    font-family: 'ProximaNovaCondensedExtrabold';
+    overflow: hidden;
+}
+
+.container {
+    padding-left: 0;
+    padding-right: 0;
+    border: 5px solid #822036;
+}
+
 .sidebar {
+    padding: 10px;
     border-right: 5px solid #822036;
-    height: 100vh;
+    height: 95vh;
 }
 
 .sidebar nav ul li a {
+    font-family: 'ProximaNovaCondensedExtrabold';
     color: #3f3437;
-    font-weight: 750;
+    font-weight: 900;
+    font-size: 22px;
+    line-height: 20px;
 }
 
 .container-fluid {
-margin-left: 0;
-margin-right: 0;
+    margin-left: 0;
+    margin-right: 0;
 }

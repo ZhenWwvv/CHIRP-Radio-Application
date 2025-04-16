@@ -12,7 +12,7 @@ html lang='en'
 
   header.site-header(style="background-color: #822036; color: white; padding: 10px 20px; display: flex; align-items: center;")
     img(src="/images/CHIRPradio-2x.png", alt="CHIRP Logo", style="height: 40px;")
-    h1(style="margin: 0 0 0 15px; font-size: 28px; font-weight: bold;") CHIRP Command Center
+    h1(style="font-family: 'ProximaNovaCondensedExtrabold'; margin: 0 0 0 15px; font-size: 35px; font-weight: 900;") CHIRP Command Center
 
   body.container
     - block header
