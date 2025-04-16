@@ -10,14 +10,18 @@ html lang='en'
     link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"
     - block extrastyle
 
+  header.site-header(style="background-color: #822036; color: white; padding: 10px 20px; display: flex; align-items: center;")
+    img(src="/images/CHIRPradio-2x.png", alt="CHIRP Logo", style="height: 40px;")
+    h1(style="margin: 0 0 0 15px; font-size: 28px; font-weight: bold;") CHIRP Command Center
+
   body.container
     - block header
     .container-fluid
       .row
         // Sidebar (always appears on all pages)
-        .col-sm-3.hidden-xs
+        .col-sm-3.hidden-xs.sidebar
           nav
-            h4 Sidebar
+            // h4 Sidebar
             ul.nav.nav-pills.nav-stacked
               li
                 a(href='/') Home
@@ -35,7 +39,6 @@ html lang='en'
                 a(href='/upload/')Upload New Data to DJDB
               li
                 a(href='/generate-traktor/')Generate Traktor File
-              
 
 
         // Main content block (from child templates)
@@ -44,4 +47,4 @@ html lang='en'
 
     script src='https://code.jquery.com/jquery-3.1.1.min.js'
     script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"
-    -block extrascripts
+    link(rel="stylesheet", href="/styles/base.css")
