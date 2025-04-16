@@ -6,4 +6,9 @@
 .sidebar nav ul li a {
     color: #3f3437;
     font-weight: 750;
-  }
+}
+
+.container-fluid {
+margin-left: 0;
+margin-right: 0;
+}
