@@ -34,3 +34,7 @@ body {
     margin-left: 0;
     margin-right: 0;
 }
+
+.btn:hover {
+    background-color: #bf2f4f;
+}

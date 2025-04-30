@@ -67,3 +67,11 @@ header button.start, header button.stop {
 .btn {
   background-color: #822036;
 }
+
+.btn:hover {
+  background-color: #bf2f4f !important;
+}
+
+a {
+  color: #822036;
+}
